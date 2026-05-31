@@ -79,7 +79,7 @@
       "file_type": "code",
       "source_file": "clob_engine.py",
       "source_location": "L24",
-      "id": "clob_engine_py_int",
+      "id": "int",
       "community": 0,
       "norm_label": "int"
     },
@@ -381,19 +381,10 @@
       "norm_label": "api.py"
     },
     {
-      "label": "get_db()",
-      "file_type": "code",
-      "source_file": "api.py",
-      "source_location": "L19",
-      "id": "predict_api_get_db",
-      "community": 4,
-      "norm_label": "get_db()"
-    },
-    {
       "label": "OrderRequest",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L33",
+      "source_location": "L17",
       "id": "predict_api_orderrequest",
       "community": 4,
       "norm_label": "orderrequest"
@@ -411,7 +402,7 @@
       "label": "read_market_resolution()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L44",
+      "source_location": "L28",
       "id": "predict_api_read_market_resolution",
       "community": 4,
       "norm_label": "read_market_resolution()"
@@ -420,7 +411,7 @@
       "label": "str",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L44",
+      "source_location": "L28",
       "id": "api_py_str",
       "community": 4,
       "norm_label": "str"
@@ -429,7 +420,7 @@
       "label": "read_market_bets()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L56",
+      "source_location": "L41",
       "id": "predict_api_read_market_bets",
       "community": 4,
       "norm_label": "read_market_bets()"
@@ -438,7 +429,7 @@
       "label": "read_bet()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L62",
+      "source_location": "L48",
       "id": "predict_api_read_bet",
       "community": 4,
       "norm_label": "read_bet()"
@@ -447,7 +438,7 @@
       "label": "place_order()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L76",
+      "source_location": "L63",
       "id": "predict_api_place_order",
       "community": 4,
       "norm_label": "place_order()"
@@ -456,7 +447,7 @@
       "label": "cancel_order()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L100",
+      "source_location": "L87",
       "id": "predict_api_cancel_order",
       "community": 4,
       "norm_label": "cancel_order()"
@@ -465,7 +456,7 @@
       "label": "read_orderbook()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L114",
+      "source_location": "L101",
       "id": "predict_api_read_orderbook",
       "community": 4,
       "norm_label": "read_orderbook()"
@@ -474,7 +465,7 @@
       "label": "read_user_positions()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L121",
+      "source_location": "L108",
       "id": "predict_api_read_user_positions",
       "community": 4,
       "norm_label": "read_user_positions()"
@@ -483,7 +474,7 @@
       "label": "read_user_balance()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L143",
+      "source_location": "L125",
       "id": "predict_api_read_user_balance",
       "community": 4,
       "norm_label": "read_user_balance()"
@@ -492,44 +483,26 @@
       "label": "read_market_trades()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L160",
+      "source_location": "L144",
       "id": "predict_api_read_market_trades",
       "community": 4,
       "norm_label": "read_market_trades()"
     },
     {
-      "label": "int",
-      "file_type": "code",
-      "source_file": "api.py",
-      "source_location": "L160",
-      "id": "api_py_int",
-      "community": 4,
-      "norm_label": "int"
-    },
-    {
       "label": "read_user_orders()",
       "file_type": "code",
       "source_file": "api.py",
-      "source_location": "L177",
+      "source_location": "L162",
       "id": "predict_api_read_user_orders",
       "community": 4,
       "norm_label": "read_user_orders()"
     },
     {
-      "label": "Context manager to safely manage sqlite3 database connection lifecycles,     ens",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L20",
-      "id": "predict_api_rationale_20",
-      "community": 4,
-      "norm_label": "context manager to safely manage sqlite3 database connection lifecycles,     ens"
-    },
-    {
       "label": "Places a new limit/market order on the CLOB engine for the specified market.",
       "file_type": "rationale",
       "source_file": "api.py",
-      "source_location": "L77",
-      "id": "predict_api_rationale_77",
+      "source_location": "L64",
+      "id": "predict_api_rationale_64",
       "community": 4,
       "norm_label": "places a new limit/market order on the clob engine for the specified market."
     },
@@ -537,8 +510,8 @@
       "label": "Cancels an open or partially filled order, releasing locked margin balance.",
       "file_type": "rationale",
       "source_file": "api.py",
-      "source_location": "L101",
-      "id": "predict_api_rationale_101",
+      "source_location": "L88",
+      "id": "predict_api_rationale_88",
       "community": 4,
       "norm_label": "cancels an open or partially filled order, releasing locked margin balance."
     },
@@ -546,46 +519,46 @@
       "label": "Returns the aggregated L2 orderbook bids and asks for YES and NO outcomes.",
       "file_type": "rationale",
       "source_file": "api.py",
-      "source_location": "L115",
-      "id": "predict_api_rationale_115",
+      "source_location": "L102",
+      "id": "predict_api_rationale_102",
       "community": 4,
       "norm_label": "returns the aggregated l2 orderbook bids and asks for yes and no outcomes."
     },
     {
-      "label": "Retrieves open share positions for a user, optionally filtered by market.",
+      "label": "Retrieves all open share positions (YES/NO shares, average prices) for a user.",
       "file_type": "rationale",
       "source_file": "api.py",
-      "source_location": "L122",
-      "id": "predict_api_rationale_122",
+      "source_location": "L109",
+      "id": "predict_api_rationale_109",
       "community": 4,
-      "norm_label": "retrieves open share positions for a user, optionally filtered by market."
+      "norm_label": "retrieves all open share positions (yes/no shares, average prices) for a user."
     },
     {
       "label": "Retrieves the available cash balance of a user.",
       "file_type": "rationale",
       "source_file": "api.py",
-      "source_location": "L144",
-      "id": "predict_api_rationale_144",
+      "source_location": "L126",
+      "id": "predict_api_rationale_126",
       "community": 4,
       "norm_label": "retrieves the available cash balance of a user."
     },
     {
-      "label": "Returns historical trades executed on the CLOB engine for a given market with pa",
+      "label": "Returns historical trades executed on the CLOB engine for a given market.",
       "file_type": "rationale",
       "source_file": "api.py",
-      "source_location": "L161",
-      "id": "predict_api_rationale_161",
+      "source_location": "L145",
+      "id": "predict_api_rationale_145",
       "community": 4,
-      "norm_label": "returns historical trades executed on the clob engine for a given market with pa"
+      "norm_label": "returns historical trades executed on the clob engine for a given market."
     },
     {
-      "label": "Retrieves order execution history (open, filled, cancelled) for a user with pagi",
+      "label": "Retrieves order execution history (open, filled, cancelled) for a user.",
       "file_type": "rationale",
       "source_file": "api.py",
-      "source_location": "L178",
-      "id": "predict_api_rationale_178",
+      "source_location": "L163",
+      "id": "predict_api_rationale_163",
       "community": 4,
-      "norm_label": "retrieves order execution history (open, filled, cancelled) for a user with pagi"
+      "norm_label": "retrieves order execution history (open, filled, cancelled) for a user."
     },
     {
       "label": "setup_clob_tables.py",
@@ -1515,78 +1488,6 @@
       "norm_label": "9. future extensibility & long-term vision"
     },
     {
-      "label": "int",
-      "file_type": "code",
-      "source_file": "clob_engine.py",
-      "source_location": "L24",
-      "community": 0,
-      "norm_label": "int",
-      "id": "int"
-    },
-    {
-      "label": "Places a new limit/market order on the CLOB engine for the specified market.",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L64",
-      "community": 4,
-      "norm_label": "places a new limit/market order on the clob engine for the specified market.",
-      "id": "predict_api_rationale_64"
-    },
-    {
-      "label": "Cancels an open or partially filled order, releasing locked margin balance.",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L88",
-      "community": 4,
-      "norm_label": "cancels an open or partially filled order, releasing locked margin balance.",
-      "id": "predict_api_rationale_88"
-    },
-    {
-      "label": "Returns the aggregated L2 orderbook bids and asks for YES and NO outcomes.",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L102",
-      "community": 4,
-      "norm_label": "returns the aggregated l2 orderbook bids and asks for yes and no outcomes.",
-      "id": "predict_api_rationale_102"
-    },
-    {
-      "label": "Retrieves all open share positions (YES/NO shares, average prices) for a user.",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L109",
-      "community": 4,
-      "norm_label": "retrieves all open share positions (yes/no shares, average prices) for a user.",
-      "id": "predict_api_rationale_109"
-    },
-    {
-      "label": "Retrieves the available cash balance of a user.",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L126",
-      "community": 4,
-      "norm_label": "retrieves the available cash balance of a user.",
-      "id": "predict_api_rationale_126"
-    },
-    {
-      "label": "Returns historical trades executed on the CLOB engine for a given market.",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L145",
-      "community": 4,
-      "norm_label": "returns historical trades executed on the clob engine for a given market.",
-      "id": "predict_api_rationale_145"
-    },
-    {
-      "label": "Retrieves order execution history (open, filled, cancelled) for a user.",
-      "file_type": "rationale",
-      "source_file": "api.py",
-      "source_location": "L163",
-      "community": 4,
-      "norm_label": "retrieves order execution history (open, filled, cancelled) for a user.",
-      "id": "predict_api_rationale_163"
-    },
-    {
       "label": "# TODO: add auth tokens for users",
       "file_type": "rationale",
       "source_file": "api.py",
@@ -2335,17 +2236,6 @@
       "source_file": "clob_engine.py",
       "source_location": "L24",
       "weight": 1.0,
-      "source": "predict_clob_engine_order_price_cents",
-      "target": "clob_engine_py_int",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "clob_engine.py",
-      "source_location": "L24",
-      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "predict_clob_engine_order_price_cents",
       "target": "int"
@@ -2357,9 +2247,9 @@
       "source_file": "clob_engine.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "predict_clob_engine_order_remaining_quantity",
-      "target": "clob_engine_py_int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "references",
@@ -2368,9 +2258,9 @@
       "source_file": "clob_engine.py",
       "source_location": "L230",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "predict_clob_engine_process_order",
-      "target": "clob_engine_py_int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "references",
@@ -2379,19 +2269,8 @@
       "source_file": "clob_engine.py",
       "source_location": "L413",
       "weight": 1.0,
-      "source": "predict_clob_engine_update_position",
-      "target": "clob_engine_py_int",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "clob_engine.py",
-      "source_location": "L29",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "predict_clob_engine_order_remaining_quantity",
+      "source": "predict_clob_engine_update_position",
       "target": "int"
     },
     {
@@ -2610,17 +2489,6 @@
       "target": "clob_engine_py_float"
     },
     {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "clob_engine.py",
-      "source_location": "L230",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "predict_clob_engine_process_order",
-      "target": "int"
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2683,17 +2551,6 @@
       "confidence_score": 1.0,
       "source": "predict_clob_engine_update_position",
       "target": "cursor"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "clob_engine.py",
-      "source_location": "L413",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "predict_clob_engine_update_position",
-      "target": "int"
     },
     {
       "relation": "rationale_for",
@@ -2934,16 +2791,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "api.py",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "api_py",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
       "source_location": "L17",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3059,93 +2906,6 @@
       "confidence_score": 1.0,
       "source": "predict_api_rationale_12",
       "target": "api_py"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "predict_api_rationale_20",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L63",
-      "weight": 1.0,
-      "source": "predict_api_read_bet",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L57",
-      "weight": 1.0,
-      "source": "predict_api_read_market_bets",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L45",
-      "weight": 1.0,
-      "source": "predict_api_read_market_resolution",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L164",
-      "weight": 1.0,
-      "source": "predict_api_read_market_trades",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L147",
-      "weight": 1.0,
-      "source": "predict_api_read_user_balance",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L181",
-      "weight": 1.0,
-      "source": "predict_api_read_user_orders",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L125",
-      "weight": 1.0,
-      "source": "predict_api_read_user_positions",
-      "target": "predict_api_get_db",
-      "confidence_score": 1.0
     },
     {
       "relation": "inherits",
@@ -3292,26 +3052,6 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "api.py",
-      "source_location": "L77",
-      "weight": 1.0,
-      "source": "predict_api_rationale_77",
-      "target": "predict_api_place_order",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L101",
-      "weight": 1.0,
-      "source": "predict_api_rationale_101",
-      "target": "predict_api_cancel_order",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
       "source_location": "L88",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3332,31 +3072,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "api.py",
-      "source_location": "L115",
-      "weight": 1.0,
-      "source": "predict_api_rationale_115",
-      "target": "predict_api_read_orderbook",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
       "source_location": "L109",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "predict_api_rationale_109",
       "target": "predict_api_read_user_positions"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L122",
-      "weight": 1.0,
-      "source": "predict_api_rationale_122",
-      "target": "predict_api_read_user_positions",
-      "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
@@ -3372,16 +3092,6 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "api.py",
-      "source_location": "L144",
-      "weight": 1.0,
-      "source": "predict_api_rationale_144",
-      "target": "predict_api_read_user_balance",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
       "source_location": "L145",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3392,53 +3102,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "api.py",
-      "source_location": "L161",
-      "weight": 1.0,
-      "source": "predict_api_rationale_161",
-      "target": "predict_api_read_market_trades",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L160",
-      "weight": 1.0,
-      "source": "predict_api_read_market_trades",
-      "target": "api_py_int",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L177",
-      "weight": 1.0,
-      "source": "predict_api_read_user_orders",
-      "target": "api_py_int",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
       "source_location": "L163",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "predict_api_rationale_163",
       "target": "predict_api_read_user_orders"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "api.py",
-      "source_location": "L178",
-      "weight": 1.0,
-      "source": "predict_api_rationale_178",
-      "target": "predict_api_read_user_orders",
-      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3739,9 +3407,9 @@
       "source_file": ".antigravitycli/simplify.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "antigravitycli_simplify_md",
-      "target": "antigravitycli_simplify_simplify_code_review_and_cleanup"
+      "target": "antigravitycli_simplify_simplify_code_review_and_cleanup",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3749,9 +3417,9 @@
       "source_file": ".antigravitycli/simplify.md",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "antigravitycli_simplify_simplify_code_review_and_cleanup",
-      "target": "antigravitycli_simplify_phase_1_identify_changes"
+      "target": "antigravitycli_simplify_phase_1_identify_changes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3759,9 +3427,9 @@
       "source_file": ".antigravitycli/simplify.md",
       "source_location": "L9",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "antigravitycli_simplify_simplify_code_review_and_cleanup",
-      "target": "antigravitycli_simplify_phase_2_launch_three_review_agents_in_parallel"
+      "target": "antigravitycli_simplify_phase_2_launch_three_review_agents_in_parallel",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3769,9 +3437,9 @@
       "source_file": ".antigravitycli/simplify.md",
       "source_location": "L42",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "antigravitycli_simplify_simplify_code_review_and_cleanup",
-      "target": "antigravitycli_simplify_phase_3_fix_issues"
+      "target": "antigravitycli_simplify_phase_3_fix_issues",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3779,9 +3447,9 @@
       "source_file": ".antigravitycli/simplify.md",
       "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "antigravitycli_simplify_phase_2_launch_three_review_agents_in_parallel",
-      "target": "antigravitycli_simplify_agent_1_code_reuse_review"
+      "target": "antigravitycli_simplify_agent_1_code_reuse_review",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3789,9 +3457,9 @@
       "source_file": ".antigravitycli/simplify.md",
       "source_location": "L21",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "antigravitycli_simplify_phase_2_launch_three_review_agents_in_parallel",
-      "target": "antigravitycli_simplify_agent_2_code_quality_review"
+      "target": "antigravitycli_simplify_agent_2_code_quality_review",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3799,9 +3467,9 @@
       "source_file": ".antigravitycli/simplify.md",
       "source_location": "L31",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "antigravitycli_simplify_phase_2_launch_three_review_agents_in_parallel",
-      "target": "antigravitycli_simplify_agent_3_efficiency_review"
+      "target": "antigravitycli_simplify_agent_3_efficiency_review",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",

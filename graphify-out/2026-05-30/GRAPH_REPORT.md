@@ -1,12 +1,12 @@
 # Graph Report - predict  (2026-05-30)
 
 ## Corpus Check
-- 19 files · ~14,552 words
+- 19 files · ~14,461 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 217 nodes · 237 edges · 40 communities (16 shown, 24 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.94)
+- 206 nodes · 215 edges · 40 communities (16 shown, 24 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.94)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -54,16 +54,16 @@
 - [[_COMMUNITY_Community 38|Community 38]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `process_order()` - 12 edges
+1. `process_order()` - 11 edges
 2. `str` - 10 edges
 3. `Platform Architecture & Product Specification: A Hybrid Venture-Scale Prediction Market` - 10 edges
-4. `get_db()` - 9 edges
-5. `Central Limit Order Book (CLOB) Implementation Plan` - 9 edges
-6. `update_position()` - 8 edges
-7. `Order` - 7 edges
-8. `match_taker_order()` - 7 edges
-9. `OrderBook` - 6 edges
-10. `read_market_trades()` - 6 edges
+4. `Central Limit Order Book (CLOB) Implementation Plan` - 9 edges
+5. `Order` - 7 edges
+6. `match_taker_order()` - 7 edges
+7. `update_position()` - 7 edges
+8. `OrderBook` - 6 edges
+9. `connect` - 6 edges
+10. `Phases` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `placeBet Function` --semantically_similar_to--> `process_order Function`  [INFERRED] [semantically similar]
@@ -86,7 +86,7 @@
 
 ### Community 0 - "CLOB Matching Engine Core"
 Cohesion: 0.14
-Nodes (21): bool, float, int, str, Connection, Cursor, int, cancel_order() (+13 more)
+Nodes (20): bool, float, str, Connection, Cursor, int, cancel_order(), get_orderbook() (+12 more)
 
 ### Community 1 - "Prediction Platform Architecture"
 Cohesion: 0.14
@@ -101,8 +101,8 @@ Cohesion: 0.26
 Nodes (8): datetime, connect, float, str, distribute_winnings(), get_market_resolution(), resolve_market(), time_weight()
 
 ### Community 4 - "Web API Routing & Logic"
-Cohesion: 0.09
-Nodes (32): int, str, BaseModel, cancel_order(), get_db(), OrderRequest, place_order(), Cancels an open or partially filled order, releasing locked margin balance. (+24 more)
+Cohesion: 0.13
+Nodes (22): str, BaseModel, cancel_order(), OrderRequest, place_order(), Returns the aggregated L2 orderbook bids and asks for YES and NO outcomes., Retrieves all open share positions (YES/NO shares, average prices) for a user., # TODO: add auth tokens for users (+14 more)
 
 ### Community 5 - "Antigravity CLI Resource Metadata"
 Cohesion: 0.40
@@ -145,15 +145,15 @@ Nodes (3): 2026-05-28 Session, 2026-05-29 Session, Session Log & Progress
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `datetime` connect `Market Resolution & TWPM Math` to `Web API Routing & Logic`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **What connects `Connection`, `Cursor`, `Loads open orders from SQLite into the in-memory books.` to the rest of the system?**
-  _115 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _107 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `CLOB Matching Engine Core` be split into smaller, more focused modules?**
-  _Cohesion score 0.14245014245014245 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14153846153846153 - nodes in this community are weakly interconnected._
 - **Should `Prediction Platform Architecture` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `Web API Routing & Logic` be split into smaller, more focused modules?**
-  _Cohesion score 0.0946969696969697 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12648221343873517 - nodes in this community are weakly interconnected._
 - **Should `Community 29` be split into smaller, more focused modules?**
   _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
 - **Should `Community 30` be split into smaller, more focused modules?**
