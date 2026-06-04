@@ -15,6 +15,8 @@ app = FastAPI(title="Prediction Market & CLOB API")
 
 DB_PATH = 'bsname.db'
 
+#TODO: add auth tokens for users
+
 @contextlib.contextmanager
 def get_db():
     """
@@ -40,7 +42,7 @@ class OrderRequest(BaseModel):
 
 # --- Existing TWPM Pari-Mutuel Endpoints ---
 
-@app.get("/markets/{market_id}/resolution")
+@app.get("api/v1/markets/{market_id}/resolution")
 def read_market_resolution(market_id: str):
     with get_db() as db:
         resolution = market_resolution.get_market_resolution(db, market_id)
@@ -52,13 +54,13 @@ def read_market_resolution(market_id: str):
             detail="Market not found or not resolved yet."
         )
 
-@app.get("/markets/{market_id}/bets")
+@app.get("api/v1/markets/{market_id}/bets")
 def read_market_bets(market_id: str):
     with get_db() as db:
         bets = bet_placing.getBets(db, market_id)
     return {"market_id": market_id, "bets": [dict(bet) for bet in bets]}
 
-@app.get("/markets/{market_id}/bets/{bet_id}")
+@app.get("api/v1/markets/{market_id}/bets/{bet_id}")
 def read_bet(market_id: str, bet_id: str):
     with get_db() as db:
         bet = bet_placing.getBet(db, bet_id)
@@ -72,7 +74,7 @@ def read_bet(market_id: str, bet_id: str):
 
 # --- New CLOB Endpoints ---
 
-@app.post("/markets/{market_id}/orders", status_code=status.HTTP_201_CREATED)
+@app.post("api/v1/markets/{market_id}/orders", status_code=status.HTTP_201_CREATED)
 def place_order(market_id: str, order_req: OrderRequest):
     """
     Places a new limit/market order on the CLOB engine for the specified market.
@@ -96,7 +98,7 @@ def place_order(market_id: str, order_req: OrderRequest):
             detail=result.get("error", "Failed to process order.")
         )
 
-@app.post("/orders/{order_id}/cancel")
+@app.post("api/v1/orders/{order_id}/cancel")
 def cancel_order(order_id: str):
     """
     Cancels an open or partially filled order, releasing locked margin balance.
@@ -110,14 +112,14 @@ def cancel_order(order_id: str):
             detail=result.get("error", "Failed to cancel order.")
         )
 
-@app.get("/markets/{market_id}/orderbook")
+@app.get("api/v1/markets/{market_id}/orderbook")
 def read_orderbook(market_id: str):
     """
     Returns the aggregated L2 orderbook bids and asks for YES and NO outcomes.
     """
     return clob_engine.get_orderbook(DB_PATH, market_id)
 
-@app.get("/users/{user_id}/positions")
+@app.get("api/v1/users/{user_id}/positions")
 def read_user_positions(user_id: str, market_id: Optional[str] = None):
     """
     Retrieves open share positions for a user, optionally filtered by market.
@@ -139,7 +141,7 @@ def read_user_positions(user_id: str, market_id: Optional[str] = None):
         rows = cursor.fetchall()
     return {"user_id": user_id, "positions": [dict(row) for row in rows]}
 
-@app.get("/users/{user_id}/balance")
+@app.get("api/v1/users/{user_id}/balance")
 def read_user_balance(user_id: str):
     """
     Retrieves the available cash balance of a user.
@@ -156,7 +158,7 @@ def read_user_balance(user_id: str):
             detail="User not found."
         )
 
-@app.get("/markets/{market_id}/trades")
+@app.get("api/v1/markets/{market_id}/trades")
 def read_market_trades(market_id: str, limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0)):
     """
     Returns historical trades executed on the CLOB engine for a given market with pagination.
@@ -173,7 +175,7 @@ def read_market_trades(market_id: str, limit: int = Query(50, ge=1, le=100), off
         rows = cursor.fetchall()
     return {"market_id": market_id, "trades": [dict(row) for row in rows]}
 
-@app.get("/users/{user_id}/orders")
+@app.get("api/v1/users/{user_id}/orders")
 def read_user_orders(user_id: str, limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0)):
     """
     Retrieves order execution history (open, filled, cancelled) for a user with pagination.
