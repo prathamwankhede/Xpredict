@@ -1,11 +1,11 @@
 # Graph Report - predict  (2026-06-06)
 
 ## Corpus Check
-- 33 files · ~24,601 words
+- 33 files · ~24,435 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 312 nodes · 324 edges · 51 communities (26 shown, 25 thin omitted)
+- 311 nodes · 323 edges · 51 communities (26 shown, 25 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.94)
 - Token cost: 0 input · 0 output
 
@@ -144,8 +144,8 @@ Cohesion: 0.50
 Nodes (3): 2026-05-28 Session, 2026-05-29 Session, Session Log & Progress
 
 ### Community 40 - "Community 40"
-Cohesion: 0.09
-Nodes (19): devDependencies, autoprefixer, postcss, svelte, @sveltejs/vite-plugin-svelte, tailwindcss, @tailwindcss/postcss, vite (+11 more)
+Cohesion: 0.10
+Nodes (18): devDependencies, autoprefixer, postcss, svelte, @sveltejs/vite-plugin-svelte, tailwindcss, @tailwindcss/postcss, vite (+10 more)
 
 ### Community 41 - "Community 41"
 Cohesion: 0.12

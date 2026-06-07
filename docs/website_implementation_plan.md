@@ -69,6 +69,24 @@ Next, build the home and markets views with the component hierarchy described in
 
 Finally, build the market detail view with a left column for title, countdown, and a chart container, and a right column for the trading terminal. The terminal should include segmented BUY/SELL toggles, tabs for Market/Limit/Pari-Mutuel, and input fields for size and price, with a computed summary that shows estimated slippage or time-weight premium when TWPM is selected. Add a search overlay opened by Cmd/Ctrl+K, micro-animations for card entrance and orderbook flashes, and accessibility checks for contrast and focus states.
 
+## Starting the Vite Dev Server
+
+To run and view the prediction market website locally:
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies (if you haven't already):
+   ```bash
+   npm install
+   ```
+3. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+4. Access the application in your browser at the printed local address (default is **http://localhost:5173**).
+
 ## Concrete Steps
 
 From the repository root, create the frontend scaffold in ./frontend and install dependencies using the standard Svelte + Vite tooling. Then, replace the generated root component content with the markup from [index.svelte](index.svelte) and expand it into the full layout described above. Start the dev server from ./frontend and verify the UI in a browser.

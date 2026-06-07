@@ -444,6 +444,13 @@ gantt
 #### Automated Stress Testing
 * **Latency Verification:** Launch `locust` or custom k6 Go load scripts simulating 10,000 active concurrent WebSocket clients placing 200 orders per second. Assert matching latency remains under 50ms at $p99$.
 * **Mathematical Invariance Testing:** Unit tests to assert that under all trading sequences, the sum of user balances and locked margins always equals the total system liability (no phantom cash creation).
+* **CLOB End-to-End & High-Frequency Integration Test Suite:** An automated integration test suite ([test_clob_e2e.py](file:///Users/prathamwankhede/Documents/predict/tests/test_clob_e2e.py)) that validates:
+  1. **Market Creation:** Dynamically initializes temporary prediction markets running on the CLOB matching engine.
+  2. **High-Frequency Concurrency:** Simulates multi-user high-frequency trading through concurrent python threads placing buy and sell orders, verifying database lock-contention handling.
+  3. **Order Matching & Position Credits:** Tests direct matches (matching YES/NO buyers with sellers) and synthetic mints (creating contract pairs when YES Bid + NO Bid >= $1.00).
+  4. **Manual Resolution:** Resolves markets manually, setting the winning outcome side in the database.
+  5. **Payout & Margin Refunds:** Automatically cancels outstanding open/partially filled orders, refunds locked margin to buyers, pays out $1.00 per winning share, and resets user positions to zero.
+  6. **Mathematical Invariants:** Enforces exact system-wide cash conservation (Sum of Final Balances == Sum of Initial Balances).
 
 #### Manual Verification
 * **Disaster Recovery Mock:** Simulating database node outages during active trading, asserting that Kafka maintains queue state, and the matching engine recovers without losing trades.

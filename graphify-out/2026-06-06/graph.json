@@ -1056,6 +1056,15 @@
       "norm_label": "app.svelte"
     },
     {
+      "label": "active",
+      "file_type": "code",
+      "source_file": "frontend/src/App.svelte",
+      "source_location": "L258",
+      "id": "src_app_active",
+      "community": 40,
+      "norm_label": "active"
+    },
+    {
       "label": "svelte",
       "file_type": "code",
       "source_file": "svelte",
@@ -1063,15 +1072,6 @@
       "id": "svelte",
       "community": 40,
       "norm_label": "svelte"
-    },
-    {
-      "label": "svelte/transition",
-      "file_type": "code",
-      "source_file": "svelte/transition",
-      "confidence": "EXTRACTED",
-      "id": "transition",
-      "community": 40,
-      "norm_label": "svelte/transition"
     },
     {
       "label": "main.js",
@@ -2278,15 +2278,6 @@
       "id": "docs_implementation_plan_9_future_extensibility_long_term_vision",
       "community": 29,
       "norm_label": "9. future extensibility & long-term vision"
-    },
-    {
-      "label": "active",
-      "file_type": "code",
-      "source_file": "frontend/src/App.svelte",
-      "source_location": "L258",
-      "community": 40,
-      "norm_label": "active",
-      "id": "src_app_active"
     },
     {
       "label": "Connection",
@@ -4981,14 +4972,6 @@
       "confidence_score": 1.0,
       "source": "frontend_src_app_svelte",
       "target": "svelte"
-    },
-    {
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/App.svelte",
-      "source": "frontend_src_app_svelte",
-      "target": "transition",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",

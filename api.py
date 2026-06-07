@@ -17,6 +17,7 @@ DB_PATH = 'bsname.db'
 
 #TODO: add auth tokens for users
 
+
 @contextlib.contextmanager
 def get_db():
     """

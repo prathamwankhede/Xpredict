@@ -1,5 +1,6 @@
 <script>
   import { onDestroy, onMount } from 'svelte'
+  import { fade } from 'svelte/transition'
 
   const filters = ['All', 'Politics', 'Crypto', 'Macro', 'Sports', 'Tech', 'Culture']
   const engines = ['All', 'CLOB', 'TWPM']
@@ -153,13 +154,94 @@
     }
   }
 
+  let progress = 0
+  let currentFeaturedIndex = 0
+  let lastTime = 0
+  let animationFrameId
+  let isPaused = false
+
+  function handleMouseEnter() {
+    isPaused = true
+  }
+
+  function handleMouseLeave() {
+    isPaused = false
+    lastTime = null
+  }
+
+  const featuredMarkets = [
+    {
+      title: 'Will the Fed cut rates before September 2026?',
+      engine: 'CLOB',
+      sub: 'Live order book with $12.8M depth and 820 active traders.',
+      yes: 61,
+      no: 39,
+      lastTrade: '0.62',
+      change: '+3.2%',
+    },
+    {
+      title: 'Will Bitcoin exceed $120,000 in 2026?',
+      engine: 'CLOB',
+      sub: 'Highly volatile volume pool with $9.1M matched trades.',
+      yes: 54,
+      no: 46,
+      lastTrade: '0.54',
+      change: '-2.1%',
+    },
+    {
+      title: 'EU passes new AI liability framework by 2026?',
+      engine: 'TWPM',
+      sub: 'Time-weighted pool with square root early-bid incentives.',
+      yes: 42,
+      no: 58,
+      lastTrade: '0.42',
+      change: '+1.5%',
+    }
+  ]
+
+  const duration = 5000
+
+  function animate(time) {
+    if (!lastTime) lastTime = time
+    const delta = time - lastTime
+    
+    if (!isPaused) {
+      progress += (delta / duration) * 100
+
+      if (progress >= 100) {
+        progress = 0
+        currentFeaturedIndex = (currentFeaturedIndex + 1) % featuredMarkets.length
+      }
+    }
+
+    lastTime = time
+    animationFrameId = requestAnimationFrame(animate)
+  }
+
+  function startRotation() {
+    progress = 0
+    lastTime = 0
+    if (animationFrameId) cancelAnimationFrame(animationFrameId)
+    animationFrameId = requestAnimationFrame(animate)
+  }
+
+  function handleDotClick(idx) {
+    currentFeaturedIndex = idx
+    startRotation()
+  }
+
   onMount(() => {
     window.addEventListener('keydown', handleKeydown)
-    return () => window.removeEventListener('keydown', handleKeydown)
+    startRotation()
+    return () => {
+      window.removeEventListener('keydown', handleKeydown)
+      if (animationFrameId) cancelAnimationFrame(animationFrameId)
+    }
   })
 
   onDestroy(() => {
     window.removeEventListener('keydown', handleKeydown)
+    if (animationFrameId) cancelAnimationFrame(animationFrameId)
   })
 
   $: if (typeof document !== 'undefined') {
@@ -168,24 +250,43 @@
 </script>
 
 <div class="page">
-  <header class="nav glass">
-    <div class="brand">
-      <span class="brand-mark"></span>
-      Xpredict
-    </div>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/" class="is-active">Markets</a>
-      <a href="/">Portfolio</a>
-      <a href="/">Insights</a>
-      <a href="/">Liquidity</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="ghost" type="button" on:click={openSearch}>Search</button>
-      <button class="cta" type="button">Create Market</button>
-    </div>
-  </header>
+  <div class="top-bar-wrapper">
+    <header class="nav glass">
+      <div class="nav-container">
+        <div class="brand">
+          Xpredict
+        </div>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/" class="is-active">Markets</a>
+          <a href="/">Portfolio</a>
+          <a href="/">Insights</a>
+          <a href="/">Liquidity</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="ghost" type="button" on:click={openSearch}>Search</button>
+          <button class="cta" type="button">Start Trading</button>
+        </div>
+      </div>
+    </header>
 
-  <main>
+    <div class="ticker">
+      <div class="ticker-track">
+        <div class="ticker-half">
+          {#each activity as item}
+            <span>{item}</span>
+          {/each}
+        </div>
+        <div class="ticker-half">
+          {#each activity as item}
+            <span>{item}</span>
+          {/each}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <main>
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Liquidity first markets</p>
@@ -213,20 +314,46 @@
           </div>
         </div>
       </div>
-      <div class="hero-spotlight glass">
-        <div class="spotlight-top">
-          <span class="pill">Featured</span>
-          <span class="engine">CLOB</span>
-        </div>
-        <h2>Will the Fed cut rates before September 2026?</h2>
-        <p class="spotlight-sub">Live order book with $12.8M depth and 820 active traders.</p>
-        <div class="spotlight-prices">
-          <button class="yes" type="button">Yes 61%</button>
-          <button class="no" type="button">No 39%</button>
-        </div>
-        <div class="spotlight-footer">
-          <span>Last trade 0.62</span>
-          <span>1h change +3.2%</span>
+      <div 
+        class="hero-spotlight glass"
+        role="region"
+        aria-label="Featured Markets Spotlight"
+        on:mouseenter={handleMouseEnter}
+        on:mouseleave={handleMouseLeave}
+      >
+        {#key currentFeaturedIndex}
+          <div class="spotlight-inner" in:fade={{ duration: 250 }}>
+            <div class="spotlight-top">
+              <span class="pill">Featured</span>
+              <span class="engine">{featuredMarkets[currentFeaturedIndex].engine}</span>
+            </div>
+            <h2>{featuredMarkets[currentFeaturedIndex].title}</h2>
+            <p class="spotlight-sub">{featuredMarkets[currentFeaturedIndex].sub}</p>
+            <div class="spotlight-prices">
+              <button class="yes" type="button">Yes {featuredMarkets[currentFeaturedIndex].yes}%</button>
+              <button class="no" type="button">No {featuredMarkets[currentFeaturedIndex].no}%</button>
+            </div>
+            <div class="spotlight-footer">
+              <span>Last trade {featuredMarkets[currentFeaturedIndex].lastTrade}</span>
+              <span>1h change {featuredMarkets[currentFeaturedIndex].change}</span>
+            </div>
+          </div>
+        {/key}
+        <div class="spotlight-dots">
+          {#each featuredMarkets as _, idx}
+            <button 
+              type="button" 
+              class="dot-container" 
+              class:active={currentFeaturedIndex === idx}
+              on:click={() => handleDotClick(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+            >
+              <div 
+                class="dot-progress" 
+                style="width: {currentFeaturedIndex === idx ? progress : 0}%"
+              ></div>
+            </button>
+          {/each}
         </div>
       </div>
     </section>
@@ -257,6 +384,11 @@
         {/each}
       </div>
     </section>
+
+    <div class="market-section-header">
+      <p class="eyebrow">Explore</p>
+      <h2>All Prediction Markets</h2>
+    </div>
 
     <section class="market-grid">
       {#each markets as market, index}
@@ -392,17 +524,7 @@
       </div>
     </section>
   </main>
-
-  <div class="ticker">
-    <div class="ticker-track">
-      {#each activity as item}
-        <span>{item}</span>
-      {/each}
-      {#each activity as item}
-        <span>{item}</span>
-      {/each}
-    </div>
-  </div>
+</div>
 </div>
 
 {#if isSearchOpen}
