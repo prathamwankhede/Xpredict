@@ -5,17 +5,17 @@ Fully design, plan, and architect a modern, production-grade, venture-scale pred
 
 ## Phases
 
-### Phase 1: Research & Codebase Analysis (In Progress)
+### Phase 1: Research & Codebase Analysis (Complete)
 - [x] Inspect existing database schemas in `bet_placing.py` and `market_resolution.py`
 - [x] Analyze current time-weighted pari-mutuel calculation formulas
 - [x] Document limitations of the current SQLite + FastAPI setup
 
-### Phase 2: System Architecture Design
+### Phase 2: System Architecture Design (Complete)
 - [x] Design the high-throughput Central Limit Order Book (CLOB) and AMM trading engines
-- [x] Implement core CLOB double-auction matching engine with synthetic contract minting/burning
-- [ ] Detail the real-time event streaming and push notification systems (WebSockets, Redis, Kafka)
-- [ ] Plan backend infrastructure (Go/Rust for execution, Node.js/Fastify for API, PostgreSQL for state)
-- [ ] Design the frontend design system, component hierarchy, and responsive UI/UX
+- [x] Implement core CLOB double-auction matching engine with synthetic contract minting/burning (in `clob_engine.py`)
+- [x] Detail the real-time event streaming and push notification systems (WebSockets, Redis, Kafka) (in `docs/systems_design_spec.md`)
+- [x] Plan backend infrastructure (Go/Rust for execution, Node.js/Fastify for API, PostgreSQL for state) (in `docs/systems_design_spec.md`)
+- [x] Design the frontend design system, component hierarchy, and responsive UI/UX (in `./frontend` and `docs/systems_design_spec.md`)
 
 ### Phase 3: Database & API Modeling
 - [x] Model PostgreSQL database schemas (with indexes, partitions, and constraints)

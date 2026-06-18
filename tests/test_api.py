@@ -51,7 +51,7 @@ def test_clob_api(db_path="bsname.db"):
             "price": 0.62,
             "quantity": 10
         }
-        response = client.post(f"/markets/{market_id}/orders", json=order_payload)
+        response = client.post(f"/api/v1/markets/{market_id}/orders", json=order_payload)
         assert response.status_code == 201, f"Expected 201, got {response.status_code}: {response.text}"
         data = response.json()
         assert data["status"] == "open", f"Expected 'open', got {data['status']}"
@@ -62,7 +62,7 @@ def test_clob_api(db_path="bsname.db"):
         # TEST 2: Check balance via GET /users/{user_id}/balance
         # ---------------------------------------------------------------------
         print("\n[TEST 2] Testing User Balance API...")
-        response = client.get(f"/users/{user_a_id}/balance")
+        response = client.get(f"/api/v1/users/{user_a_id}/balance")
         assert response.status_code == 200, f"Expected 200, got {response.status_code}"
         balance_data = response.json()
         print(f"User A balance: ${balance_data['balance']:.2f}")
@@ -73,7 +73,7 @@ def test_clob_api(db_path="bsname.db"):
         # TEST 3: Check orderbook via GET /markets/{market_id}/orderbook
         # ---------------------------------------------------------------------
         print("\n[TEST 3] Testing Orderbook Depth API...")
-        response = client.get(f"/markets/{market_id}/orderbook")
+        response = client.get(f"/api/v1/markets/{market_id}/orderbook")
         assert response.status_code == 200, f"Expected 200, got {response.status_code}"
         book = response.json()
         print("Orderbook structure:", book)
@@ -100,7 +100,7 @@ def test_clob_api(db_path="bsname.db"):
             "price": 0.60,
             "quantity": 5
         }
-        response = client.post(f"/markets/{market_id}/orders", json=sell_payload)
+        response = client.post(f"/api/v1/markets/{market_id}/orders", json=sell_payload)
         assert response.status_code == 201, f"Expected 201, got {response.status_code}: {response.text}"
         match_data = response.json()
         assert match_data["status"] == "filled", f"Expected 'filled', got {match_data['status']}"
@@ -114,7 +114,7 @@ def test_clob_api(db_path="bsname.db"):
         # TEST 5: Check Positions via GET /users/{user_id}/positions
         # ---------------------------------------------------------------------
         print("\n[TEST 5] Testing User Positions API...")
-        response = client.get(f"/users/{user_a_id}/positions")
+        response = client.get(f"/api/v1/users/{user_a_id}/positions")
         assert response.status_code == 200, f"Expected 200, got {response.status_code}"
         pos_data = response.json()
         print(f"User A Positions: {pos_data['positions']}")
@@ -125,7 +125,7 @@ def test_clob_api(db_path="bsname.db"):
         # TEST 6: Check Trades via GET /markets/{market_id}/trades
         # ---------------------------------------------------------------------
         print("\n[TEST 6] Testing Market Trades History API...")
-        response = client.get(f"/markets/{market_id}/trades")
+        response = client.get(f"/api/v1/markets/{market_id}/trades")
         assert response.status_code == 200, f"Expected 200"
         trades_data = response.json()
         print(f"Market trades: {trades_data['trades']}")
@@ -137,7 +137,7 @@ def test_clob_api(db_path="bsname.db"):
         # ---------------------------------------------------------------------
         print("\n[TEST 7] Testing Order Cancellation API...")
         # Get remaining order id for User A's open YES buy order (which had 10 quantity, 5 filled, so 5 remaining)
-        response = client.get(f"/users/{user_a_id}/orders")
+        response = client.get(f"/api/v1/users/{user_a_id}/orders")
         assert response.status_code == 200
         orders_data = response.json()
         print(f"User A Orders: {orders_data['orders']}")
@@ -145,14 +145,14 @@ def test_clob_api(db_path="bsname.db"):
         rem_order_id = orders_data["orders"][0]["id"]
         assert orders_data["orders"][0]["status"] == "partially_filled"
         
-        response = client.post(f"/orders/{rem_order_id}/cancel")
+        response = client.post(f"/api/v1/orders/{rem_order_id}/cancel")
         assert response.status_code == 200, f"Expected 200, got {response.status_code}: {response.text}"
         canc_data = response.json()
         print(f"Cancel report: {canc_data}")
         assert canc_data["refunded_amount"] == 3.10, f"Expected refund of 3.10 (5 remaining * $0.62), got {canc_data['refunded_amount']}"
         
         # Re-check balance to confirm release
-        response = client.get(f"/users/{user_a_id}/balance")
+        response = client.get(f"/api/v1/users/{user_a_id}/balance")
         balance_data = response.json()
         print(f"User A balance after cancel: ${balance_data['balance']:.2f}")
         assert abs(balance_data["balance"] - 996.90) < 0.01, f"Expected 996.90, got {balance_data['balance']}"

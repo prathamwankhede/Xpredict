@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source(".");
 
 :root {
   --bg-base: hsl(222, 47%, 6%);
